@@ -48,6 +48,10 @@ const App = () => {
     setEmployees((employees) => [...employees, newEmployee]);
   }
 
+  function handleDeleteEmployee(id) {
+    setEmployees(employees.filter((employee) => employee.id !== id));
+  }
+
   function handleAddMoney(value) {
     setEmployees((employees) =>
       employees.map((employee) =>
@@ -63,6 +67,21 @@ const App = () => {
     setSelectedEmployee(false);
   }
 
+  // function handleReset(id) {
+  //   setEmployees((employees) =>
+  //     employees.map((employee) =>
+  //       employee.id === id
+  //         ? {
+  //             ...employee,
+  //             balance: 0,
+  //             salary: 0,
+  //             salaryDate: "",
+  //           }
+  //         : employee
+  //     )
+  //   );
+  // }
+
   return (
     <div className="container">
       <EmpList
@@ -70,6 +89,8 @@ const App = () => {
         onSelection={handleSelection}
         selectedEmployee={selectedEmployee}
         employee={employees}
+        onDelete={handleDeleteEmployee}
+        // onReset={handleReset}
       />
 
       {selectedEmployee && (

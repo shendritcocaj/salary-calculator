@@ -19,7 +19,7 @@ const FormAddMoney = ({ selectedEmployee, onAddMoney }) => {
         <input
           type="number"
           min={1}
-          max={selectedEmployee.salary + 100}
+          max={selectedEmployee.salary}
           placeholder="Sheno shumen e parave"
           value={balance}
           onChange={(e) => setBalance(Math.abs(e.target.value))}
